@@ -1,7 +1,9 @@
 import 'package:flutter/widgets.dart';
+import 'package:myapp/core/routing/app_router.dart';
 
 class DoctorApp extends StatelessWidget {
-  const DoctorApp({super.key});
+  final AppRouter appRouter;
+  const DoctorApp({super.key, required this.appRouter});
 
   @override
   Widget build(BuildContext context) {
