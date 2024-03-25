@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:myapp/features/onboarding_screen/ui/widgets/doc_image_and_text.dart';
 import 'package:myapp/features/onboarding_screen/ui/widgets/doc_logo_and_name.dart';
 
 class OnBoardingScreen extends StatelessWidget {
@@ -6,12 +8,14 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              DocLogoAndName(),
+              const DocLogoAndName(),
+              SizedBox(height: 30.h,),
+              const DocImageAndText(),
             ],
           ),
         ),
