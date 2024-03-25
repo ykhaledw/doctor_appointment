@@ -12,4 +12,16 @@ class TextStyles {
     fontWeight: FontWeight.bold,
     color: Colors.blue,
   );
+
+  static const TextStyle font13GreyRegular = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeight.normal,
+    color: Colors.grey,
+  );
+
+  static const TextStyle font16WhiteSemiBold = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: Colors.white,
+  );
 }
