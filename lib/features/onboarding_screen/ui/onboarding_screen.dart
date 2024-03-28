@@ -22,9 +22,9 @@ class OnBoardingScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 30.w),
                 child: Column(
                   children: [
-                    const Text('Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.', 
+                     Text('Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.', 
                     textAlign: TextAlign.center,
-                    style: TextStyles.font13GreyRegular,),
+                    style: TextStyles.font13GrayRegular,),
                     SizedBox(height: 30.h,),
                     const GetStartedButton(),
                   ],

@@ -15,7 +15,7 @@ class GetStartedButton extends StatelessWidget {
       }, 
       
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(AppColors.mainBlueColor),
+        backgroundColor: MaterialStateProperty.all(AppColors.mainBlue),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minimumSize: MaterialStateProperty.all(const Size(double.infinity, 52)),
         shape: MaterialStateProperty.all(
@@ -24,7 +24,7 @@ class GetStartedButton extends StatelessWidget {
           ),
         ),
       ),
-      child: const Text('Get Started', style: TextStyles.font16WhiteSemiBold,),
+      child: Text('Get Started', style: TextStyles.font16WhiteSemiBold,),
       );
   }
 }

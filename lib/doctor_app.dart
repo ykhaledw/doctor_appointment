@@ -16,7 +16,7 @@ class DoctorApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Doctor Appointment',
         theme: ThemeData(
-          primaryColor: AppColors.mainBlueColor,
+          primaryColor: AppColors.mainBlue,
           scaffoldBackgroundColor: Colors.white,
         ),
         debugShowCheckedModeBanner: false,
