@@ -7,7 +7,7 @@ import 'package:myapp/features/login_screen/data/models/login_response.dart';
 class LoginRepo {
   final ApiService apiService;
 
-  LoginRepo({required this.apiService});
+  LoginRepo(this.apiService);
 
   Future<ApiResult<LoginResponse>> login(LoginRequestBody loginRequestBody) async {
     try {

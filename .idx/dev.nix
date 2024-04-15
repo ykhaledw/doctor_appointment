@@ -30,6 +30,11 @@
           id = "android";
           manager = "flutter";
         }
+        {
+          command = ["flutter" "run" "--target=flutter-tester"];
+          id = "ios";
+          manager = "flutter";
+        }
       ];
     };
   };
