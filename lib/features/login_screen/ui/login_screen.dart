@@ -26,11 +26,10 @@ class LoginScreen extends StatelessWidget {
               verticalSpacing(8),
               Text('We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last logged in.',style: TextStyles.font14GrayRegular,),
               verticalSpacing(36),
-              const EmailAndPassword(),
-              verticalSpacing(24),
               Column(
                children: [
-                 verticalSpacing(16),
+                const EmailAndPassword(),
+                verticalSpacing(24),
                  Align(
                    alignment: AlignmentDirectional.centerEnd,
                    child: Text('Forgot Password ?', style: TextStyles.font13BlueRegular,),

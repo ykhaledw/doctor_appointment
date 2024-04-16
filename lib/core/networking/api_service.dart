@@ -12,6 +12,6 @@ abstract class ApiService{
 
   @POST(ApiConstants.login)
   Future<LoginResponse> login(
-    @Body() LoginRequestBody loginRequestBody
+    @Body() LoginRequestBody loginRequestBody,
     );
 }
