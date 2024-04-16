@@ -10,4 +10,5 @@ extension Navigation on BuildContext {
   Future<dynamic> pushNamedAndRemoveUntil(String routeName, {Object? arguments,required RoutePredicate predicate}){
     return Navigator.of(this).pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);
   }
+  void pop() => Navigator.of(this).pop();
 }

@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:myapp/core/helpers/spacing.dart';
 import 'package:myapp/core/shared_widgets/app_button.dart';
 import 'package:myapp/core/theming/styles.dart';
+import 'package:myapp/features/login_screen/logic/cubit/login_cubit.dart';
 import 'package:myapp/features/login_screen/ui/widgets/dont_have_an_account_text.dart';
 import 'package:myapp/features/login_screen/ui/widgets/email_and_password.dart';
+import 'package:myapp/features/login_screen/ui/widgets/login_bloc_listener.dart';
 import 'package:myapp/features/login_screen/ui/widgets/terms_and_conditions_text.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,6 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Text('We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last logged in.',style: TextStyles.font14GrayRegular,),
               verticalSpacing(36),
               const EmailAndPassword(),
+              verticalSpacing(24),
               Column(
                children: [
                  verticalSpacing(16),
@@ -40,7 +37,9 @@ class _LoginScreenState extends State<LoginScreen> {
                    ),
                    verticalSpacing(40),
                    AppButton(
-                     onPressed: (){}, 
+                     onPressed: (){
+                      validateThenDoLogin(context);
+                     }, 
                      buttonText: 'Login', 
                      textStyle: TextStyles.font16WhiteSemiBold,
                      ),
@@ -48,6 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                      const TermsAndConditonsText(),
                      verticalSpacing(24),
                      const DontHaveAnAccountText(),
+                     const LoginBlocListener(),
                ],
                             ),
             ],
@@ -55,5 +55,11 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  void validateThenDoLogin(BuildContext context) {
+    if(context.read<LoginCubit>().formKey.currentState!.validate()){
+      context.read<LoginCubit>().emitLoadingState();
+    }
   }
 }

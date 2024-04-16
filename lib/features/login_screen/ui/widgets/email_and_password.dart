@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:myapp/core/helpers/app_regex.dart';
 import 'package:myapp/core/helpers/spacing.dart';
 import 'package:myapp/core/shared_widgets/app_text_form_field.dart';
 import 'package:myapp/features/login_screen/logic/cubit/login_cubit.dart';
@@ -26,10 +27,24 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     passwordController = context.read<LoginCubit>().passwordController;
+    setupPasswordControllerListener();
   }
+
+  void setupPasswordControllerListener() {
+    passwordController.addListener(() { 
+      setState(() {
+        hasLowercase = AppRegex.hasLowerCase(passwordController.text);
+        hasUppercase = AppRegex.hasUpperCase(passwordController.text);
+        hasSpecialCharacters = AppRegex.hasSpecialCharacters(passwordController.text);
+        hasNumber = AppRegex.hasNumber(passwordController.text);
+        hasMinLength = AppRegex.hasMinLength(passwordController.text);
+      });
+    });
+  }
+
+  
 
 
   @override
@@ -42,8 +57,8 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             controller: context.read<LoginCubit>().emailController,
             hintText: 'Email',
             validator: (value){
-              if(value == null || value.isEmpty){
-                return 'Please enter your email';
+              if(value == null || value.isEmpty || !AppRegex.isEmailValid(value)){
+                return 'Please enter a valid email';
               }
             },
             ),
@@ -66,7 +81,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                      },
                      
                    ),
-                   verticalSpacing(16),
+                   verticalSpacing(24),
                    PasswordValidation(
                     hasLowerCase: hasLowercase,
                     hasUpperCase: hasUppercase,
@@ -78,4 +93,12 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
       ),
       );
   }
+  
+
+  @override
+  void dispose() {
+    passwordController.dispose();
+    super.dispose();
+  }
+  
 }
