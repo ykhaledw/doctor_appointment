@@ -30,22 +30,6 @@ class LoginBlocListener extends StatelessWidget {
           },
           failure: (error) {
             setupErrorState(context, error);
-            // context.pop();
-            // showDialog(
-            //   context: context, 
-            //   builder: (context)=> AlertDialog(
-            //     icon: const Icon(Icons.error, color: Colors.red, size: 32,),
-            //     content: Text(error, style: TextStyles.font15DarkBlueMedium,),
-            //     actions: [
-            //       TextButton(
-            //         onPressed: (){
-            //           context.pop();
-            //         }, 
-            //         child: Text('Got it', style: TextStyles.font14BlueSemiBold,),
-            //         ),
-            //     ],
-            //   ),
-            //   );
           },
           
         );
