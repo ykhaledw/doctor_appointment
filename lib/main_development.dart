@@ -5,5 +5,7 @@ import 'package:myapp/doctor_app.dart';
 
 void main() {
   setupGetIt();
-  runApp( DoctorApp(appRouter: AppRouter(),));
+  runApp(DoctorApp(
+    appRouter: AppRouter(),
+  ));
 }
